@@ -1,10 +1,9 @@
-name: deploy-toy-website
-
-on: [workflow_dispatch]
+name: MyWorkflow
 
 jobs:
-  say-hello:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 'placeholder step'
-        run: echo "Hello world!"
+    - uses: actions/checkout@v2
+      with:
+        path: repo
