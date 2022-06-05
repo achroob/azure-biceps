@@ -12,3 +12,4 @@ jobs:
           who-to-greet: 'Achroo'
       - name: Log greeting time
         run: echo "{{ steps.greet.output.time }}"
+        shell: bash 
