@@ -28,4 +28,4 @@ jobs:
         pwd 
         ls -a 
     - name: Pull info from repository push 
-      run: echo ${{ github.token.event.clien_payload.env }}
+      run: echo ${{ github.token.event.client_payload.env }}
