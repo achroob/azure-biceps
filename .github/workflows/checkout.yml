@@ -22,8 +22,10 @@ jobs:
         echo $GITHUB_WORKSPACE
         echo "${{ github.token }}"        
     - name: Checkout
-      uses: actions/checkout@v3.0.2
+      uses: actions/checkout@v3.0.2    
     - name: List Files after Checkout
       run: |
         pwd 
         ls -a 
+    - name: Pull info from repository push 
+      run: echo ${{ github.token.event.clien_payload.env }}
