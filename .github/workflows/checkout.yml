@@ -1,6 +1,10 @@
 name: Checkout Action
 
 on: 
+  repository_dispatch:
+    types: [build]
+  # schedule:
+  #   - cron: "5 * * * *"
   push:
   pull_request: 
     types: [opened, closed, assigned, reopened]
