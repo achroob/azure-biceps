@@ -4,8 +4,8 @@ on: [push]
 
 jobs:
   run-checkout:
-  runs-on: ubuntu-latest
-  steps:
+    runs-on: ubuntu-latest
+    steps:
     - name: List Files before Checkout
       run: |
         pwd 
