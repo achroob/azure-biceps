@@ -40,5 +40,5 @@ jobs:
     - name: Pull info from repository push 
       run: |
         echo ${{ github.event.client_payload.env }}
-        echo ${{ github.event.event_type  }}
+        echo ${{ github.event.event_type }}
 
