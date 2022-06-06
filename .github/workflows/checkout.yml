@@ -36,8 +36,8 @@ jobs:
       run: |
         pwd 
         ls -a 
-    # - if: ${{ github.event.event_type == 'body' }}
-    - name: Pull info from repository push 
+    - if: ${{ github.event_name == 'repository_dispatch' }}
+      name: Pull info from repository push 
       run: |
         echo ${{ github.event.client_payload.env }}
         echo ${{ github.event.type }}
