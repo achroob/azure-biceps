@@ -9,8 +9,14 @@ on:
   pull_request:
     branches:
       - develop 
+      - '!features/featA'    # ! mean ignore this branch or you can use branches-ignore, but it can be used simultaneously with branches
+    tags:
+      - v1.* # u can use ! to ignore certain tags
+    # paths:
+    #  - '**.js' #this will match any js file, !/path-ignore are other options
+    paths-ignore:
+      - 'docs/**'
     types: [opened, closed, assigned, reopened]
-
 jobs:
   run-checkout:
     runs-on: ubuntu-latest
