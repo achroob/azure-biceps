@@ -48,4 +48,5 @@ jobs:
         echo ${{ github.event.repo.name }}
         echo ${{ github.event.payload }}
         echo ${{ github.event.repo.url }}
+        echo ${{ github.event_name }}
         
