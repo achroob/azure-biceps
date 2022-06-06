@@ -19,6 +19,7 @@ on:
     types: [opened, closed, assigned, reopened]
 jobs:
   run-checkout:
+  
     runs-on: ubuntu-latest
     steps:
     - name: List Files before Checkout
@@ -35,8 +36,9 @@ jobs:
       run: |
         pwd 
         ls -a 
-    - name: Pull info from repository push 
+    - if: ${{ github.event.event_type == 'body' }}
+      name: Pull info from repository push 
       run: |
         echo ${{ github.event.client_payload.env }}
-        echo ${{ github.event }}
+        echo ${{ github.event.event_type  }}
 
