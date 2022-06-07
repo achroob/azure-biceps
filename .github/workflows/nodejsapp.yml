@@ -6,7 +6,7 @@ jobs:
 
     services:
       app: 
-        image: achroob/simple-docker-nodejs-api
+        image: alialaa17/node-api
         ports:
           - 3001:3000
 
