@@ -26,8 +26,8 @@ jobs:
       - name: Run a Script
         uses: docker://node:12.14.1-alpine3.10
         with:
-          entrypoint: pwd; ls -a 
-          # args: "Some String"
+          entrypoint: '/bin/bash'
+          args: pwd; ls -a 
         
   # nodejs-container-app:
   #   runs-on: ubuntu-latest
