@@ -8,8 +8,19 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]  # u can run on diff os, three times for each os
         node_version: [14, 15, 16]
+        include:
+          - os: ubuntu-latest
+            node_version: 15
+            is_ubuntu_15: "true"
+        exclude:
+          - os: ubuntu-latest
+            node_version: 14
+          - os: macos-latest
+            node_version: 15  
       # max-parallel: 2
     runs-on: ${{ matrix.os }}
+    env:
+      is_ubuntu_15: ${{ matrix.is_ubuntu_15 }}
     steps:
       - name: Log node version 
         run: node -v 
@@ -17,5 +28,7 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
       - name: Log node version 
-        run: node -v 
+        run: | 
+            node -v 
+            echo $is_ubuntu_15
        
