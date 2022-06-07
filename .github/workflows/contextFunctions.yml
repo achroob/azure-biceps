@@ -21,6 +21,8 @@ jobs:
       - name: Dump GitHub context
         id: github_context_step
         run: eccho '${{ toJSON(github) }}'
+        # continue-on-error: true   #this will allow following steps to run even if current step fails
+        timeout-minutes: 360 # max time in which a step can run
 
       - name: Dump job context
         if: failure() # return true if previous step fails
