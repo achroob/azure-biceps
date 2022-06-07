@@ -1,0 +1,14 @@
+name: Hello World
+author: AB
+description: First JS
+inputs:
+  who-to-greet:
+      description: "name of the person to greet"
+      required: true
+      default: AB
+outputs:
+  time:
+    description: "greeting time"
+runs:
+  using: "node16"
+  main: "dist/index.js"
