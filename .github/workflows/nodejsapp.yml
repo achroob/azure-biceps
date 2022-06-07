@@ -27,7 +27,7 @@ jobs:
         run: |
           pwd 
           ls -lart 
-          script.sh
+          ./script.sh
 
         # uses: docker://node:12.14.1-alpine3.10
         # with:
