@@ -1,0 +1,23 @@
+name: nodejs container App
+on: push
+jobs:
+  nodejs-container-app:
+    runs-on: ubuntu-latest
+
+    services:
+      app: 
+        image: achroob/simple-docker-nodejs-api
+        ports:
+          - 3001:3000
+
+      mongo:
+        image: mongo
+        ports:
+          - 27017:27017
+
+    steps:
+      - name: Post a user
+        run: "curl -X POST http://localhost:3001/api/user -H 'Content-type: application/json' 
+              -d '{\"username\": \"hello\", \"address\": \"dddd\"}' "
+      - name: Get users
+        run: "curl http://localhost:3001/api/users" 
