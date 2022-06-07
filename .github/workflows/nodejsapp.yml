@@ -24,15 +24,14 @@ jobs:
           pwd
           ls -a 
       - name: Run a Script
-        run: |
-          pwd 
-          ls -lart 
-          ./script.sh
-
-        # uses: docker://node:12.14.1-alpine3.10
-        # with:
-        #   entrypoint: '/bin/bash'
-        #   args: pwd; ls -a 
+        # run: |
+        #   pwd 
+        #   ls -lart 
+        #   ./script.sh
+        uses: docker://node:12.14.1-alpine3.10
+        with:
+          entrypoint: ./script.sh
+          args: "some"
         
   # nodejs-container-app:
   #   runs-on: ubuntu-latest
