@@ -1,34 +1,34 @@
-name: matrix
-on: [push]
-jobs:
-  node-version:
-    strategy:
-      # fail-fast: true
+# name: matrix
+# on: [push]
+# jobs:
+#   node-version:
+#     strategy:
+#       # fail-fast: true
 
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]  # u can run on diff os, three times for each os
-        node_version: [14, 15, 16]
-        include:
-          - os: ubuntu-latest
-            node_version: 15
-            is_ubuntu_15: "true"
-        exclude:
-          - os: ubuntu-latest
-            node_version: 14
-          - os: macos-latest
-            node_version: 15  
-      # max-parallel: 2
-    runs-on: ${{ matrix.os }}
-    env:
-      is_ubuntu_15: ${{ matrix.is_ubuntu_15 }}
-    steps:
-      - name: Log node version 
-        run: node -v 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node_version }}
-      - name: Log node version 
-        run: | 
-            node -v 
-            echo $is_ubuntu_15
+#       matrix:
+#         os: [macos-latest, ubuntu-latest, windows-latest]  # u can run on diff os, three times for each os
+#         node_version: [14, 15, 16]
+#         include:
+#           - os: ubuntu-latest
+#             node_version: 15
+#             is_ubuntu_15: "true"
+#         exclude:
+#           - os: ubuntu-latest
+#             node_version: 14
+#           - os: macos-latest
+#             node_version: 15  
+#       # max-parallel: 2
+#     runs-on: ${{ matrix.os }}
+#     env:
+#       is_ubuntu_15: ${{ matrix.is_ubuntu_15 }}
+#     steps:
+#       - name: Log node version 
+#         run: node -v 
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: ${{ matrix.node_version }}
+#       - name: Log node version 
+#         run: | 
+#             node -v 
+#             echo $is_ubuntu_15
        

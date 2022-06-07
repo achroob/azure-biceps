@@ -1,14 +1,14 @@
-name: Actions workflow
-on: [push]
-jobs:
-  run-github-action:
-    runs-on: ubuntu-latest
-    steps:
-      - name: simple js actions
-        id: greet   # to identify or refer this step in another step
-        uses: actions/hello-world-javascript-action@v1.1  
-        # uses: actions/hello-world-javascript-action@main, u can mention branch or tags from release or commit id
-        with:
-          who-to-greet: 'Achroo'
-      - name: Log greeting time
-        run: echo "${{ steps.greet.outputs.time }}"
+# name: Actions workflow
+# on: [push]
+# jobs:
+#   run-github-action:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: simple js actions
+#         id: greet   # to identify or refer this step in another step
+#         uses: actions/hello-world-javascript-action@v1.1  
+#         # uses: actions/hello-world-javascript-action@main, u can mention branch or tags from release or commit id
+#         with:
+#           who-to-greet: 'Achroo'
+#       - name: Log greeting time
+#         run: echo "${{ steps.greet.outputs.time }}"

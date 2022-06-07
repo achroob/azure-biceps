@@ -1,43 +1,43 @@
-name: Checkout Action
+# name: Checkout Action
 
-on: 
-  repository_dispatch:
-    types: [build]
-  # schedule:
-  #   - cron: "5 * * * *"
-  push:
-  pull_request:
-    branches:
-      - develop 
-      - '!features/featA'    # ! mean ignore this branch or you can use branches-ignore, but it can be used simultaneously with branches
-    tags:
-      - v1.* # u can use ! to ignore certain tags
-    # paths:
-    #  - '**.js' #this will match any js file, !/path-ignore are other options
-    paths-ignore:
-      - 'docs/**'
-    types: [opened, closed, assigned, reopened]
-jobs:
-  run-checkout:
+# on: 
+#   repository_dispatch:
+#     types: [build]
+#   # schedule:
+#   #   - cron: "5 * * * *"
+#   push:
+#   pull_request:
+#     branches:
+#       - develop 
+#       - '!features/featA'    # ! mean ignore this branch or you can use branches-ignore, but it can be used simultaneously with branches
+#     tags:
+#       - v1.* # u can use ! to ignore certain tags
+#     # paths:
+#     #  - '**.js' #this will match any js file, !/path-ignore are other options
+#     paths-ignore:
+#       - 'docs/**'
+#     types: [opened, closed, assigned, reopened]
+# jobs:
+#   run-checkout:
   
-    runs-on: ubuntu-latest
-    steps:
-    - name: List Files before Checkout
-      run: |
-        pwd 
-        ls -a
-        echo $GITHUB_SHA
-        echo $GITHUB_REPOSITORY
-        echo $GITHUB_WORKSPACE
-        echo "${{ github.token }}"        
-    - name: Checkout
-      uses: actions/checkout@v3.0.2    
-    - name: List Files after Checkout
-      run: |
-        pwd 
-        ls -a 
-    - if: ${{ github.event_name == 'repository_dispatch' }}
-      name: Pull info from repository push 
-      run: |
-        echo ${{ github.event.client_payload.env }}      
-        echo ${{ github.event_name }}
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: List Files before Checkout
+#       run: |
+#         pwd 
+#         ls -a
+#         echo $GITHUB_SHA
+#         echo $GITHUB_REPOSITORY
+#         echo $GITHUB_WORKSPACE
+#         echo "${{ github.token }}"        
+#     - name: Checkout
+#       uses: actions/checkout@v3.0.2    
+#     - name: List Files after Checkout
+#       run: |
+#         pwd 
+#         ls -a 
+#     - if: ${{ github.event_name == 'repository_dispatch' }}
+#       name: Pull info from repository push 
+#       run: |
+#         echo ${{ github.event.client_payload.env }}      
+#         echo ${{ github.event_name }}
