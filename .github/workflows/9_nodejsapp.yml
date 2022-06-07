@@ -1,0 +1,57 @@
+# name: nodejs container App
+# on: push
+# jobs:
+#   docker-steps:
+#     runs-on: ubuntu-latest
+#     container:
+#       image: node:10.18.0-jessie
+#     steps:
+#       - name: log node version
+#         run: node -v
+#       - name: step with docker
+#         uses: docker://node:12.14.1-alpine3.10
+#         with:
+#           entrypoint: '/bin/echo'
+#           args: 'Hello World'
+#       - name: log node version within container 
+#         uses: docker://node:12.14.1-alpine3.10
+#         with:
+#           entrypoint: '/usr/local/bin/node'
+#           args: -v
+#       - uses: actions/checkout@v1
+#       - run: |
+#           chmod +x script.sh
+#           pwd
+#           ls -a 
+#       - name: Run a Script
+#         # run: |
+#         #   pwd 
+#         #   ls -lart 
+#         #   ./script.sh
+#         uses: docker://node:12.14.1-alpine3.10
+#         with:
+#           entrypoint: ./script.sh
+#           args: "some"
+      # - name: send a slack message
+      #   uses: docker://technosophos/slack-notify
+      #   env:
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      #     SLACK_MESSAGE: "Hello Slack"
+        
+  # nodejs-container-app:
+  #   runs-on: ubuntu-latest
+  #   services:
+  #     app: 
+  #       image: alialaa17/node-api
+  #       ports:
+  #         - 3001:3000
+  #     mongo:
+  #       image: mongo
+  #       ports:
+  #         - 27017:27017
+  #   steps:
+  #     - name: Post a user
+  #       run: "curl -X POST http://localhost:3001/api/user -H 'Content-type: application/json' 
+  #             -d '{\"username\": \"hello\", \"address\": \"dddd\"}' "
+  #     - name: Get users
+  #       run: "curl http://localhost:3001/api/users" 
